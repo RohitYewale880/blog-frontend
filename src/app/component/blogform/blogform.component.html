@@ -1,0 +1,24 @@
+<mat-card class="mt-1 mb-3">
+    <mat-card-content>
+        <h1 class="text-primary text-center">{{isinEditMode ? 'Update Blog' : 'Add Blog'}}</h1>
+        <form #blogform="ngForm" (ngSubmit)="onBlogAdd()">
+            <div class="form-group">
+                <label for="title" class="text-primary">Title*</label>
+                <input type="text" ngModel name="title" #title="ngModel" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="content" class="text-primary">Content*</label>
+                <textarea rows="4" ngModel name="content" #content="ngModel" class="form-control"></textarea>
+            </div>
+
+            <button
+            *ngIf="!isinEditMode"
+             mat-raised-button color="primary" class="w-100">Add Blog</button>
+            <button
+            *ngIf="isinEditMode"
+             type="button"
+             (click)="onUpdate()"
+              mat-raised-button color="primary" class="w-100">Update Blog</button>
+        </form>
+    </mat-card-content>
+</mat-card>
