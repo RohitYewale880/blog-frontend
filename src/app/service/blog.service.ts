@@ -14,7 +14,9 @@ export class BlogService {
   EditBlogObj$ : Subject<Iblog> = new Subject<Iblog>()
   constructor(
     private _http : HttpClient
-  ) { }
+  ) { 
+    console.log('Blog URL:', this.blogUrl);
+  }
 
   getBlogs() : Observable<any>{
     return this._http.get<any>(this.blogUrl)
